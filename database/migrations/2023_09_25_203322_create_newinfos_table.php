@@ -17,6 +17,7 @@ class CreateNewinfosTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
+            $table->integer('level');
             $table->timestamps();
         });
     }

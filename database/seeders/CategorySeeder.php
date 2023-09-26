@@ -19,43 +19,47 @@ class CategorySeeder extends Seeder
         $categories = [
             [
                 'id' => '1',
-                'name' => 'XE NÂNG NGƯỜI KIỂU Z',
+                'ten' => 'XE NÂNG HÀNG',
             ],
             [
                 'id' => '2',
-                'name' => 'XE NÂNG HÀNG',
+                'ten' => 'MÁY NÉN KHÍ',
             ],
             [
                 'id' => '3',
-                'name' => 'MÁY PHÁT ĐIỆN',
+                'ten' => 'MÁY PHÁT ĐIỆN',
             ],
             [
                 'id' => '4',
-                'name' => 'XE NÂNG NGƯỜI CẮT KÉO',
+                'ten' => 'XE NÂNG NGƯỜI CẮT KÉO',
             ],
             [
                 'id' => '5',
-                'name' => 'MÁY XÚC ĐÀO',
+                'ten' => 'XE NÂNG NGƯỜI KIỂU Z',
             ],
             [
                 'id' => '6',
-                'name' => 'MÁY PHÁT HÀN',
+                'ten' => 'MÁY XÚC ĐÀO',
             ],
             [
                 'id' => '7',
-                'name' => 'Máy Thanh lý',
+                'ten' => 'MÁY PHÁT HÀN',
             ],
             [
                 'id' => '8',
-                'name' => 'Tin tức',
+                'ten' => 'ĐÈN CHIẾU TỰ PHÁT',
             ],
             [
                 'id' => '9',
-                'name' => 'TUYỂN DỤNG',
+                'ten' => 'MÁY XÚC LẬT BOBCAT',
             ],
             [
                 'id' => '10',
-                'name' => 'Liên hệ',
+                'ten' => 'THIẾT BỊ KHÁC',
+            ],
+            [
+                'id' => '11',
+                'ten' => 'MÁY THANH LÝ',
             ],
 
         ];
