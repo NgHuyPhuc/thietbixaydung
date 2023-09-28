@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Str;
+@endphp
 @extends('backend/master/master')
 @section('title', 'Danh mục sản phẩm')
 @section('main')
@@ -41,6 +44,7 @@
                                 <thead>
                                     <tr class="bg-primary">
                                         <th>ID</th>
+                                        <th>Ảnh</th>
                                         <th>Tên</th>
                                         <th>Danh mục</th>
                                         <th>Mô tả</th>
@@ -57,10 +61,13 @@
                                             <p><a href="{{route('detailauctionroom.search',['id_prd'=>$item->id_product])}}"><strong>{{$item->product->product_name}}</strong></a></p>
                                         </td> --}}
                                         <td>{{$item->id}}</td>
+                                        <td>
+                                            <div class=""><img style="max-width: 100%" src="../upload/img/{{$item->image}}" alt="Ảnh mô tả" width="100px" class="thumbnail"></div>
+                                        </td>
                                         <td>{{$item->ten}}</td>
                                         <td>{{$item->category->ten}}</td>
                                         <td>{{$item->description}}</td>
-                                        <td>{{$item->more_description}}</td>
+                                        <td>{{str::limit($item->more_description)}}</td>
                                         <td>{{$item->gia}}</td>
 
                                         <td>

@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('ten');
             $table->bigInteger('id_cat')->unsigned();
+            $table->string('image');
             $table->string('description');
             $table->text('more_description');
             $table->string('gia');

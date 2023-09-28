@@ -36,11 +36,23 @@
                                         <label>Mô tả</label>
                                         <textarea type="text" name="description" class="form-control"></textarea>
                                     </div>
+                                </div>
+                                <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Mô tả chi tiết</label>
-                                        <textarea type="text" name="more_description" class="form-control"></textarea>
+                                        <label>Ảnh Thông tin giới thiệu</label>
+                                        <input id="img" type="file" name="image" class="form-control hidden"
+                                            onchange="changeImg(this)">
+                                        <img id="avatar" class="thumbnail" width="100%" height="350px"
+                                            src="img/import-img.png">
                                     </div>
                                 </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Mô tả chi tiết</label>
+                                        <textarea id="content" type="text" name="more_description" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
@@ -64,6 +76,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/chart.min.js"></script>
     <script src="js/chart-data.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
 
 
 
@@ -84,6 +97,11 @@
             $('#avatar').click(function() {
                 $('#img').click();
             });
+        });
+        CKEDITOR.replace('content',{
+            filebrowserImageUploadUrl : "{{ url('/admin/new/uploads-ckeditor?_token='.csrf_token()) }}",
+            filebrowserBrowseUrl : "{{ url('/admin/new/file-browser?_token='.csrf_token()) }}",
+            filebrowserUploadMethod: 'form',
         });
     </script>
     </body>

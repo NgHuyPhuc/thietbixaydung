@@ -44,6 +44,7 @@
                                 <thead>
                                     <tr class="bg-primary">
                                         <th>ID</th>
+                                        <th>Ảnh</th>
                                         <th>Tiêu đề</th>
                                         <th>Content</th>
                                         <th>level</th>
@@ -54,6 +55,9 @@
                                 @foreach ($news as $item)
                                     <tr>
                                         <td>{{$item->id}}</td>
+                                        <td>
+                                            <div class=""><img style="max-width: 100%" src="../upload/img/{{$item->image}}" alt="Ảnh mô tả" width="100px" class="thumbnail"></div>
+                                        </td>
                                         <td>
                                             <p><strong>{{$item->title}}</strong></p>
                                         </td>

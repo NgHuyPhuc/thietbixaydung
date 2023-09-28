@@ -26,9 +26,19 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->more_description = $request->more_description;
         $product->gia = $request->gia;
-        $product->save();
-        $request->session()->flash('alert', 'Đã thêm mới thành công!');
-        return redirect()->route('product.home');
+        if($request->hasFile('image')){
+            $product->image = $request->image->getClientOriginalName();
+            $request->image->move('upload/img', $request->image->getClientOriginalName());
+            $product->save();
+            $request->session()->flash('alert', 'Đã thêm mới thành công');
+            return redirect()->route('product.home');
+        }
+        else{
+            $product->image = 'default.png';
+            $product->save();
+            $request->session()->flash('alert', 'Đã thêm mới thành công');
+            return redirect()->route('product.home');
+        }
     }
     public function edit(Request $request)
     {
@@ -45,6 +55,10 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->more_description = $request->more_description;
         $product->gia = $request->gia;
+        if($request->hasFile('image')){
+            $product->image = $request->image->getClientOriginalName();
+            $request->image->move('upload/img', $request->image->getClientOriginalName());
+        }
         $product->save();
         $request->session()->flash('alert', 'Đã sửa thành công!');
         return redirect()->route('product.home');
@@ -55,5 +69,36 @@ class ProductController extends Controller
         $product->delete();
         $request->session()->flash('alert', 'Đã xóa thành công!');
         return redirect()->route('product.home');
+    }
+    public function ckeditor_image(Request $request)
+    {
+        if ($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName . '_' . time() . '.' . $extension;
+            $request->file('upload')->move('upload/ckeditor', $fileName);
+
+            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+            $url = asset('upload/ckeditor/' . $fileName);
+            $msg = 'Tải ảnh thành công';
+            $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum,'$url','$msg')</script>";
+            @header("Content-Type: text/html; charset=utf-8");
+            echo $response;
+        }
+    }
+    public function file_browser(Request $request)
+    {
+        $paths = glob(public_path('upload/ckeditor/*'));
+
+        $fileNames = array();
+        foreach ($paths as $path) {
+            array_push($fileNames, basename($path));
+        }
+        $data = array(
+            'fileNames' => $fileNames
+        );
+        // dd($data);
+        return view('backend.listimg')->with($data);
     }
 }

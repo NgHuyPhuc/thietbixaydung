@@ -529,3 +529,6 @@ h1.entry-title {
 .mt-40{
     margin-top: 40px !important;
 }
+img{
+    max-width: 100%;
+}

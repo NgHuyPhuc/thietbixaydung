@@ -16,6 +16,7 @@ class CreateNewinfosTable extends Migration
         Schema::create('newinfos', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('image');
             $table->text('content');
             $table->integer('level');
             $table->timestamps();

@@ -21,6 +21,15 @@
                                         <input type="text" name="ten" class="form-control">
                                     </div>
                                 </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Ảnh Thông tin giới thiệu</label>
+                                        <input id="img" type="file" name="image" class="form-control hidden"
+                                            onchange="changeImg(this)">
+                                        <img id="avatar" class="thumbnail" width="100%" height="350px"
+                                            src="img/import-img.png">
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">

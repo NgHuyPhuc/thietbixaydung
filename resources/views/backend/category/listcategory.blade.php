@@ -41,6 +41,7 @@
                                 <thead>
                                     <tr class="bg-primary">
                                         <th>ID</th>
+                                        <th>Ảnh</th>
                                         <th>Tên</th>
                                         <th width='9%'>Tùy chọn</th>
                                     </tr>
@@ -48,11 +49,10 @@
                                 <tbody>
                                 @foreach ($category as $item)
                                     <tr>
-                                        {{-- <td><a href="{{route('detailauctionroom.search',['id_prd'=>$item->id_product])}}">{{$item->id}}</a></td>
-                                        <td>
-                                            <p><a href="{{route('detailauctionroom.search',['id_prd'=>$item->id_product])}}"><strong>{{$item->product->product_name}}</strong></a></p>
-                                        </td> --}}
                                         <td>{{$item->id}}</td>
+                                        <td>
+                                            <div class=""><img style="max-width: 100%" src="../upload/img/{{$item->image}}" alt="Ảnh mô tả" width="100px" class="thumbnail"></div>
+                                        </td>
                                         <td>{{$item->ten}}</td>
                                         <td>
                                             <a href="{{route('category.edit',['id' => $item->id])}}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
@@ -64,13 +64,6 @@
                                 </tbody>
                             </table>
                             <div align='right'>
-                                {{-- <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Trở lại</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">tiếp theo</a></li>
-                                </ul> --}}
                                 {{$category->links('backend.pagination.pagination')}}
                                 
                             </div>

@@ -20,6 +20,7 @@ class ProductSeeder extends Seeder
             [
                 'id' => '1',
                 'ten' => 'Máy 1',
+                'image' =>'hinh-nen-dep-cho-may-tinh-nature-wallpapers-nature-wallpaper-latest-beautiful-wallpapers-800x480.jpg',
                 'id_cat' => '1',
                 'description' => 'QUYỀN SỬ DỤNG ĐẤT ĐỂ GIAO ĐẤT HOẶC CHO THUÊ ĐẤT',
                 'more_description' => 'QUYỀN SỬ DỤNG ĐẤT ĐỂ GIAO ĐẤT HOẶC CHO THUÊ ĐẤT',
@@ -28,6 +29,7 @@ class ProductSeeder extends Seeder
             [
                 'id' => '2',
                 'ten' => 'Máy 2',
+                'image' =>'hinh-nen-dep-cho-may-tinh-nature-wallpapers-nature-wallpaper-latest-beautiful-wallpapers-800x480.jpg',
                 'id_cat' => '2',
                 'description' => 'QUYỀN SỬ DỤNG ĐẤT ĐỂ GIAO ĐẤT HOẶC CHO THUÊ ĐẤT',
                 'more_description' => 'QUYỀN SỬ DỤNG ĐẤT ĐỂ GIAO ĐẤT HOẶC CHO THUÊ ĐẤT',
@@ -36,6 +38,7 @@ class ProductSeeder extends Seeder
             [
                 'id' => '3',
                 'ten' => 'Máy 3',
+                'image' =>'hinh-nen-dep-cho-may-tinh-nature-wallpapers-nature-wallpaper-latest-beautiful-wallpapers-800x480.jpg',
                 'id_cat' => '3',
                 'description' => 'QUYỀN SỬ DỤNG ĐẤT ĐỂ GIAO ĐẤT HOẶC CHO THUÊ ĐẤT',
                 'more_description' => 'QUYỀN SỬ DỤNG ĐẤT ĐỂ GIAO ĐẤT HOẶC CHO THUÊ ĐẤT',
@@ -44,6 +47,7 @@ class ProductSeeder extends Seeder
             [
                 'id' => '4',
                 'ten' => 'Máy 4',
+                'image' =>'hinh-nen-dep-cho-may-tinh-nature-wallpapers-nature-wallpaper-latest-beautiful-wallpapers-800x480.jpg',
                 'id_cat' => '4',
                 'description' => 'QUYỀN SỬ DỤNG ĐẤT ĐỂ GIAO ĐẤT HOẶC CHO THUÊ ĐẤT',
                 'more_description' => 'QUYỀN SỬ DỤNG ĐẤT ĐỂ GIAO ĐẤT HOẶC CHO THUÊ ĐẤT',
@@ -52,6 +56,7 @@ class ProductSeeder extends Seeder
             [
                 'id' => '5',
                 'ten' => 'Máy 5',
+                'image' =>'hinh-nen-dep-cho-may-tinh-nature-wallpapers-nature-wallpaper-latest-beautiful-wallpapers-800x480.jpg',
                 'id_cat' => '5',
                 'description' => 'QUYỀN SỬ DỤNG ĐẤT ĐỂ GIAO ĐẤT HOẶC CHO THUÊ ĐẤT',
                 'more_description' => 'QUYỀN SỬ DỤNG ĐẤT ĐỂ GIAO ĐẤT HOẶC CHO THUÊ ĐẤT',

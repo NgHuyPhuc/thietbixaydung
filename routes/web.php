@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\NewInfo\NewInfoController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\User\UserController;
+use App\Http\Controllers\Site\Language\LanguageController;
 use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,8 @@ Route::prefix('admin')->middleware('auth:web')->group(function () {
         Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
         Route::post('/postedit/{id}', [ProductController::class, 'postedit'])->name('product.postedit');
         Route::get('/delete/{id}', [ProductController::class, 'delete'])->name('product.delete');
+        Route::post('/uploads-ckeditor', [ProductController::class, 'ckeditor_image']);
+        Route::get('/file-browser', [ProductController::class, 'file_browser']);
     });
     Route::prefix('/category')->middleware('auth:web')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('category.home');
@@ -78,12 +81,17 @@ Route::prefix('admin')->middleware('auth:web')->group(function () {
         Route::post('/postedit/{id}', [NewInfoController::class, 'postedit'])->name('new.postedit');
         Route::get('/delete/{id}', [NewInfoController::class, 'delete'])->name('new.delete');
     });
+    
 });
 
 
 Route::get('/', [SiteController::class, 'index'])->name('site.home');
+Route::get('/search', [SiteController::class, 'search'])->name('searchsite.home');
 Route::get('/about', [SiteController::class, 'about'])->name('aboutsite.home');
 Route::get('/list-product', [SiteController::class, 'listprd'])->name('listproductsite.home');
+Route::get('/list-tin-tuc', [SiteController::class, 'listnew'])->name('listtintuc.home');
 Route::get('/detail/{id}', [SiteController::class, 'detail'])->name('detailsite.home');
 Route::get('/news/{id}', [SiteController::class, 'new'])->name('newsite.home');
+Route::get('/language/{language}', [LanguageController::class, 'index'])->name('language');
+
 

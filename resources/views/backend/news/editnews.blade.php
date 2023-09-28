@@ -10,7 +10,7 @@
         <!--/.row-->
         <div class="row">
             <div class="col-xs-6 col-md-12 col-lg-12">
-                <form method="post" enctype="multipart/form-data" action="{{ route('new.postcreate') }}">
+                <form method="post" enctype="multipart/form-data" action="{{ route('new.postedit',['id' => $new->id]) }}">
                     <div class="panel panel-primary">
                         <div class="panel-heading">Thêm Tin tức</div>
                         <div class="panel-body">
@@ -26,6 +26,15 @@
                                             <option {{$new->level == 1 ? 'selected' : ''}} value="1">Tin tức thanh menu</option>
                                             <option {{$new->level == 2 ? 'selected' : ''}} value="2">Tin tức bình thường</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Ảnh Thông tin giới thiệu</label>
+                                        <input id="img" type="file" name="image" class="form-control hidden"
+                                            onchange="changeImg(this)">
+                                        <img id="avatar" class="thumbnail" width="100%" height="350px"
+                                            src="img/import-img.png">
                                     </div>
                                 </div>
                                 <div class="col-md-12">

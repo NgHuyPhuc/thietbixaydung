@@ -36,9 +36,20 @@
                                         <label>Mô tả</label>
                                         <textarea type="text" name="description" class="form-control">{{$product->description}}</textarea>
                                     </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Ảnh Thông tin giới thiệu</label>
+                                        <input id="img" type="file" name="image" class="form-control hidden"
+                                            onchange="changeImg(this)">
+                                        <img id="avatar" class="thumbnail" width="100%" height="350px"
+                                            src="img/import-img.png">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Mô tả chi tiết</label>
-                                        <textarea type="text" name="more_description" class="form-control">{{$product->more_description}}</textarea>
+                                        <textarea id="content" name="more_description" class="form-control">{{$product->more_description}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -64,6 +75,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/chart.min.js"></script>
     <script src="js/chart-data.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
 
 
 
@@ -84,6 +96,11 @@
             $('#avatar').click(function() {
                 $('#img').click();
             });
+        });
+        CKEDITOR.replace('content',{
+            filebrowserImageUploadUrl : "{{ url('/admin/new/uploads-ckeditor?_token='.csrf_token()) }}",
+            filebrowserBrowseUrl : "{{ url('/admin/new/file-browser?_token='.csrf_token()) }}",
+            filebrowserUploadMethod: 'form',
         });
     </script>
     </body>

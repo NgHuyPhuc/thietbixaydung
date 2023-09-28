@@ -24,9 +24,19 @@ class NewInfoController extends Controller
         $new->title = $request->title;
         $new->content = $request->content;
         $new->level = $request->level;
-        $new->save();
-        $request->session()->flash('alert', 'Đã sửa thành công');
-        return redirect()->route('new.home');
+        if($request->hasFile('image')){
+            $new->image = $request->image->getClientOriginalName();
+            $request->image->move('upload/img', $request->image->getClientOriginalName());
+            $new->save();
+            $request->session()->flash('alert', 'Đã thêm mới thành công');
+            return redirect()->route('new.home');
+        }
+        else{
+            $new->image = 'default.png';
+            $new->save();
+            $request->session()->flash('alert', 'Đã thêm mới thành công');
+            return redirect()->route('new.home');
+        }
     }
     public function edit(Request $request)
     {
@@ -39,7 +49,12 @@ class NewInfoController extends Controller
         $new->title = $request->title;
         $new->content = $request->content;
         $new->level = $request->level;
+        if($request->hasFile('image')){
+            $new->image = $request->image->getClientOriginalName();
+            $request->image->move('upload/img', $request->image->getClientOriginalName());
+        }
         $new->save();
+        
         $request->session()->flash('alert', 'Đã sửa thành công');
         return redirect()->route('new.home');
     }

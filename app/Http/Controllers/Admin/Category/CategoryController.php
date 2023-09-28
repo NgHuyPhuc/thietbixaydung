@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function index(){
-        $data['category'] = Category::orderby('id', 'asc')->paginate(5);
+        $data['category'] = Category::orderby('id', 'desc')->paginate(5);
         return view('backend.category.listcategory', $data);
     }
     public function create()
@@ -20,6 +20,19 @@ class CategoryController extends Controller
     {
         $category = new Category();
         $category->ten = $request->ten;
+        if($request->hasFile('image')){
+            $category->image = $request->image->getClientOriginalName();
+            $request->image->move('upload/img', $request->image->getClientOriginalName());
+            $category->save();
+            $request->session()->flash('alert', 'Đã thêm mới thành công');
+            return redirect()->route('category.home');
+        }
+        else{
+            $category->image = 'default.png';
+            $category->save();
+            $request->session()->flash('alert', 'Đã thêm mới thành công');
+            return redirect()->route('category.home');
+        }
         $category->save();
         $request->session()->flash('alert', 'Đã thêm mới thành công!');
         return redirect()->route('category.home');
@@ -33,6 +46,10 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($request->id);
         $category->ten = $request->ten;
+        if($request->hasFile('image')){
+            $category->image = $request->image->getClientOriginalName();
+            $request->image->move('upload/img', $request->image->getClientOriginalName());
+        }
         $category->save();
         $request->session()->flash('alert', 'Đã sửa thành công!');
         return redirect()->route('category.home');
